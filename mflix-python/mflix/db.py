@@ -26,6 +26,7 @@ def get_db():
     """
     db = getattr(g, "_database", None)
     MFLIX_DB_URI = current_app.config["MFLIX_DB_URI"]
+    MFLIX_DB_NAME = current_app.config["MFLIX_NS"]
     if db is None:
 
         """
@@ -48,7 +49,7 @@ def get_db():
         wtimeout=2500
         # TODO: Timeouts
         # Set the write timeout limit to 2500 milliseconds.
-        )["mflix"]
+        )[MFLIX_DB_NAME]
     return db
 
 
